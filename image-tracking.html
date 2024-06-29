@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    </head>
+    <style>
+        .btn-back {
+            display: block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(to left, #5c98ff, #ff5fcf);
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            font-size: 1rem;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(to right, #5f74ff, #7bfec1);
+            color:black;
+        }
+    </style>
+    <body>
+        <a href="website.html" class="btn-back">Back</a>
+        <a-scene mindar-image="imageTargetSrc: ./targets/targets1.mind; maxTrack: 10" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="audi" src="./assets/audi/scene.gltf"></a-asset-item>
+            <a-asset-item id="lamborghini" src="./assets/lamborghini/scene.gltf"></a-asset-item>
+            <a-asset-item id="koenigsegg" src="./assets/koenigsegg/scene.gltf"></a-asset-item>
+            <a-asset-item id="bugatti" src="./assets/bugatti/scene.gltf"></a-asset-item>
+            <a-asset-item id="ferrari" src="./assets/ferrari/scene.gltf"></a-asset-item>
+            <a-asset-item id="fictional" src="./assets/fictional/scene.gltf"></a-asset-item>
+            <a-asset-item id="nissansi" src="./assets/nissansi/scene.gltf"></a-asset-item>
+            <a-asset-item id="nissansky" src="./assets/nissansky/scene.gltf"></a-asset-item>
+            <a-asset-item id="pagani" src="./assets/pagani/scene.gltf"></a-asset-item>
+            <a-asset-item id="peugeot" src="./assets/peugeot/scene.gltf"></a-asset-item>
+
+            <a-image id="audi" src="./card/audi.png"></a-image>
+            <a-image id="lamborghini" src="./card/lamborghini.png"></a-image>
+            <a-image id="koenigsegg" src="./card/koenigsegg.png"></a-image>
+            <a-image id="bugatti" src="./card/bugatti.png"></a-image>
+            <a-image id="ferrari" src="./card/ferrari.png"></a-image>
+            <a-image id="fictional" src="./card/fictional.png"></a-image>
+            <a-image id="nissansi" src="./card/nissansi.png"></a-image>
+            <a-image id="nissansky" src="./card/nissansky.png"></a-image> 
+            <a-image id="pagani" src="./card/pagani.png"></a-image>
+            <a-image id="peugeot" src="./card/peugeot.png"></a-image>
+        </a-assets>
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+            <a-entity mindar-image-target="targetIndex: 0">
+                <a-image scale="2 1.25" src="#audi"></a-image> 
+                <a-gltf-model rotation="90 -0 0" position="0.15 -0.45 0.3" scale="3 3 3" src="#etron" animation-mixer>
+            </a-entity>
+            <a-entity mindar-image-target="targetIndex: 1">
+                <a-image scale="2 1.25" src="#lamborghini"></a-image>
+                <a-gltf-model rotation="90 -0 0" position="0.15 -0.45 0.3" scale="0.01 0.01 0.01" src="#sian" animation-mixer>
+            </a-entity>
+            <a-entity mindar-image-target="targetIndex: 2">
+                <a-image scale="2 1.25" src="#koenigsegg"></a-image>
+                <a-gltf-model rotation="90 0 0 " position="0 -0.25 0" scale="0.3 0.3 0.3" src="#cc850" animation-mixer>
+            </a-entity> 
+            <a-entity mindar-image-target="targetIndex: 3">
+                <a-image scale="2 1.25" src="#bugatti"></a-image>
+                <a-gltf-model rotation="90 -0 0" position="0.15 -0.45 0.3" scale="0.3 0.3 0.3" src="#veyron" animation-mixer>
+            </a-entity>
+            <a-entity mindar-image-target="targetIndex: 4">
+                <a-image scale="2 1.25" src="#ferrari"></a-image>
+                <a-gltf-model rotation="90 0 0" position="0.15 -0.45 0.5" scale="18 18 18" src="#pista" animation-mixer>
+            </a-entity>
+            <a-entity mindar-image-target="targetIndex: 5">
+                <a-image scale="2 1.25" src="#fictional"></a-image>
+                <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.008 0.008 0.008" src="#v12" animation-mixer>
+            </a-entity> 
+            <a-entity mindar-image-target="targetIndex: 6">
+                <a-image scale="2 1.25" src="#nissansi"></a-image>
+                <a-gltf-model rotation="180 90 90" position="0.15 -0.35 0.5" scale="1 1 1" src="#silvia" animation-mixer>
+            </a-entity> 
+            <a-entity mindar-image-target="targetIndex: 7">
+                <a-image scale="2 1.25" src="#nissansky"></a-image>
+                <a-gltf-model rotation="-90 -180 0" position="0.15 -0.35 0.3" scale="0.0035 0.0035 0.0035" src="#skyline" animation-mixer>
+            </a-entity>
+            <a-entity mindar-image-target="targetIndex: 8">
+                <a-image scale="2 1.25" src="#pagani"></a-image>
+                <a-gltf-model rotation="90 0 0" position="0.15 -0.25 0.8" scale="0.65 0.65 0.65" src="#huayra" animation-mixer>
+            </a-entity>
+            <a-entity mindar-image-target="targetIndex: 9">
+                <a-image scale="2 1.25" src="#peugeot"></a-image>
+                <a-gltf-model rotation="90 0 0" position="0.15 -0.25 0.3" scale="0.75 0.75 0.75" src="#vision" animation-mixer>
+            </a-entity>
+        </a-scene>
+    </body>
+</html>

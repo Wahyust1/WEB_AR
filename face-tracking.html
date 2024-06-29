@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+	const list = ["bmw_e24", "bmw_m3", "bmw_m4", "bmw_m5", "lamborghini_gallardo", "lamborghini_revuelto", "nissan_gtr", "nissan_skyline", "toyota_supra", "toyota_supra_mk4"];
+	const visibles = [false, false, false, false, false, false, false, false, false, ,false, true];
+	const setVisible = (button, entities, visible) => {
+	  if (visible) {
+	    button.classList.add("selected");
+	  } else {
+	    button.classList.remove("selected");
+	  }
+	  entities.forEach((entity) => {
+	    entity.setAttribute("visible", visible);
+	  });
+	}
+	list.forEach((item, index) => {
+	  const button = document.querySelector("#" + item);
+	  const entities = document.querySelectorAll("." + item + "-entity");
+	  setVisible(button, entities, visibles[index]);
+	  button.addEventListener('click', () => {
+	    visibles[index] = !visibles[index];
+	    setVisible(button, entities, visibles[index]);
+	  });
+	});
+      })
+    </script>
+    <style>
+      body {
+        margin: 0;
+      }
+      .example-container {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .options-panel {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 2;
+      }
+      .options-panel img {
+	border: solid 3px;
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	cursor: pointer;
+      }
+      .options-panel img.selected {
+	border-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="example-container">
+      <div class="options-panel">
+        <a-image id="audi" src="./card/audi.png"></a-image>
+        <a-image id="lamborghini" src="./card/lamborghini.png"></a-image>
+        <a-image id="koenigsegg" src="./card/koenigsegg.png"></a-image>
+        <a-image id="bugatti" src="./card/bugatti.png"></a-image>
+        <a-image id="ferrari" src="./card/ferrari.png"></a-image>
+        <a-image id="fictional" src="./card/fictional.png"></a-image>
+        <a-image id="nissansi" src="./card/nissansi.png"></a-image>
+        <a-image id="nissansky" src="./card/nissansky.png"></a-image> 
+        <a-image id="pagani" src="./card/pagani.png"></a-image>
+        <a-image id="peugeot" src="./card/peugeot.png"></a-image>
+      </div>
+
+      <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="audi" src="./assets/audi/scene.gltf"></a-asset-item>
+            <a-asset-item id="lamborghini" src="./assets/lamborghini/scene.gltf"></a-asset-item>
+            <a-asset-item id="koenigsegg" src="./assets/koenigsegg/scene.gltf"></a-asset-item>
+            <a-asset-item id="bugatti" src="./assets/bugatti/scene.gltf"></a-asset-item>
+            <a-asset-item id="ferrari" src="./assets/ferrari/scene.gltf"></a-asset-item>
+            <a-asset-item id="fictional" src="./assets/fictional/scene.gltf"></a-asset-item>
+            <a-asset-item id="nissansi" src="./assets/nissansi/scene.gltf"></a-asset-item>
+            <a-asset-item id="nissansky" src="./assets/nissansky/scene.gltf"></a-asset-item>
+            <a-asset-item id="pagani" src="./assets/pagani/scene.gltf"></a-asset-item>
+            <a-asset-item id="peugeot" src="./assets/peugeot/scene.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-camera active="false" position="0 0 0"></a-camera>
+
+	    <!-- head occluder -->
+        <a-entity mindar-face-target="anchorIndex: 127">
+	      <a-gltf-model mindar-face-occluder position="0 -0.3 0.15" rotation="0 0 0" scale="0.065 0.065 0.065" src="#headModel"></a-gltf-model>
+        </a-entity>
+
+        <!-- etron -->
+        <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0 90 0" position="0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#bmw_e24Model" class="bmw_e24-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0 90 0" position="-0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#bmw_e24Model" class="bmw_e24-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        
+        <!-- sian -->
+        <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0 0 0" position="0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#bmw_m3Model" class="bmw_m3-entity" visible="false"></a-gltf-model>
+        </a-entity> 
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0 0 0" position="-0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#bmw_m3Model" class="bmw_m3-entity" visible="false"></a-gltf-model>
+        </a-entity>
+
+         <!-- cc850 -->
+         <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0.1 0 0" position="0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#bmw_m4Model" class="bmw_m4-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0.1 0 0" position="-0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#bmw_m4Model" class="bmw_m4-entity" visible="false"></a-gltf-model>
+        </a-entity>
+
+        <!-- veyron -->
+        <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0.2 0 0" position="0.15 -0.25 0.4" scale="0.1 0.1 0.1" src="#bmw_m5Model" class="bmw_m5-entity" visible="false"></a-gltf-model>
+        </a-entity> 
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0.2 0 0" position="-0.15 -0.25 0.4" scale="0.1 0.1 0.1" src="#bmw_m5Model" class="bmw_m5-entity" visible="false"></a-gltf-model>
+        </a-entity>
+
+         <!-- pista -->
+         <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0.3 0 0" position="0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#lamborghini_gallardoModel" class="lamborghini_gallardo-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0.3 0 0" position="-0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#lamborghini_gallardoModel" class="lamborghini_gallardo-entity" visible="false"></a-gltf-model>
+        </a-entity>
+
+        <!-- v12 -->
+        <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0.4 0 0" position="0.15 -0.45 0.5" scale="0.1 0.1 0.1" src="#lamborghini_revueltoModel" class="lamborghini_revuelto-entity" visible="false"></a-gltf-model>
+        </a-entity> 
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0.4 0 0" position="-0.15 -0.45 0.5" scale="0.1 0.1 0.1" src="#lamborghini_revueltoModel" class="lamborghini_revuelto-entity" visible="false"></a-gltf-model>
+        </a-entity>
+
+         <!-- silvia -->
+         <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0.5 0 0" position="0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#nissan_gtrModel" class="nissan_gtr-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0.5 0 0" position="-0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#nissan_gtrModel" class="nissan_gtr-entity" visible="false"></a-gltf-model>
+        </a-entity>
+
+        <!-- skyline -->
+        <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0.6 0 0" position="0.15 -0.35 0.5" scale="0.1 0.1 0.1" src="#nissan_skylineModel" class="nissan_skyline-entity" visible="false"></a-gltf-model>
+        </a-entity> 
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0.6 0 0" position="-0.15 -0.35 0.5" scale="0.1 0.1 0.1" src="#nissan_skylineModel" class="nissan_skyline-entity" visible="false"></a-gltf-model>
+        </a-entity>
+
+         <!-- huayra -->
+         <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0.7 0 0" position="0.15 -0.35 0.3" scale="0.1 0.1 0.1" src="#toyota_supra_mk4Model" class="toyota_supra_mk4-entity" visible="false"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0.7 0 0" position="-0.15 -0.35 0.3" scale="0.1 0.1 0.1" src="#toyota_supra_mk4Model" class="toyota_supra_mk4-entity" visible="false"></a-gltf-model>
+        </a-entity>
+
+        <!-- vision -->
+        <a-entity mindar-face-target="anchorIndex: 127">
+            <a-gltf-model rotation="0 180 0" position="0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#toyota_supraModel" class="toyota_supra-entity" visible="false"></a-gltf-model>
+        </a-entity> 
+        <a-entity mindar-face-target="anchorIndex: 356">
+            <a-gltf-model rotation="0 180 0" position="-0.15 -0.45 0.3" scale="0.1 0.1 0.1" src="#toyota_supraModel" class="toyota_supra-entity" visible="false"></a-gltf-model>
+        </a-entity>
+
+      </a-scene>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Peugeot Vision GT Gr.3
+* source:	https://sketchfab.com/3d-models/peugeot-vision-gt-gr3-79734588c8324e15b0466c10046e1dfb
+* author:	kevin (ケビン) (https://sketchfab.com/sohyalebret)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Peugeot Vision GT Gr.3" (https://sketchfab.com/3d-models/peugeot-vision-gt-gr3-79734588c8324e15b0466c10046e1dfb) by kevin (ケビン) (https://sketchfab.com/sohyalebret) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
